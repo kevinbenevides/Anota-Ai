@@ -1,0 +1,26 @@
+<div class="card">
+  <div class="card-top-content">
+    <div class="card-remove" (click)="emitCardId()">
+      <!-- I used the svg inside the html to work with hover animation, I tried to treat it as an img tag, and I was unable to access the id inside the path  -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+        <title>Close</title>
+        <path fill="none" id="close-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"
+          d="M368 368L144 144M368 144L144 368" />
+      </svg>
+    </div>
+    <img [src]="cardInfo.img" class="banner">
+    <span class="card-label-type" [ngClass]="{
+        'type-label-flower': cardInfo.type == eCardType.Flor.toString(),
+        'type-label-landscape': cardInfo.type == eCardType.Paisagem.toString(),
+        'type-label-pizza': cardInfo.type == eCardType.Pizza.toString()}">
+      {{getTypeCard(cardInfo.type)}}
+    </span>
+  </div>
+  <div class="card-text-content">
+    <h3 class="card-title">{{cardInfo.title}}</h3>
+    <p class="card-description" style="-webkit-box-orient: vertical;">
+      {{cardInfo.description}}
+    </p>
+  </div>
+
+</div>

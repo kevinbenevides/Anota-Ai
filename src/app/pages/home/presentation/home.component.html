@@ -1,0 +1,36 @@
+<div class="home">
+  <!-- Navbar -->
+  <section class="navbar-content">
+    <div>
+      <img class="logo" src="/assets/images/anota-ai-logo.png" alt="">
+    </div>
+    <div>
+      <h1 class="navbar-title">Teste de Desenvolvedor Front-End - Anota AI</h1>
+      <div class="develop-name-content">
+        <div class="line line-s"></div>
+        <span class="develop-name"> Kevin Benevides </span>
+        <div class="line line-l"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="home-content">
+    <!-- Filter Card -->
+    <section class="filter">
+      <input type="text" (keyup)="onKeyPress($event.target.value)">
+      <button><img class="search-icon" src="/assets/icons/search.svg"></button>
+    </section>
+
+    <!-- Card List -->
+    <section class="card-list" *ngIf="cardListFilter.length > 0; else emptyList">
+      <div *ngFor="let card of cardListFilter;">
+        <card-component [cardInfo]="card" (cardSend)="removeCard($event)"></card-component>
+      </div>
+    </section>
+    <ng-template #emptyList>
+      <div class="empty-message">
+        <span>Nenhum dado encontrado.</span>
+      </div>
+    </ng-template>
+  </div>
+</div>
